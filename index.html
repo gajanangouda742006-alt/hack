@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Skill Swap Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Community Skill Swap Board</h1>
+    <p>Post a skill to teach, request a skill to learn, and find a perfect swap partner.</p>
+  </header>
+
+  <main class="container">
+    <!-- LEFT: form -->
+    <section class="card form-card">
+      <h2>Create / Update Your Profile</h2>
+      <p class="hint">
+        Fill this once and we’ll generate intelligent matches for you.
+      </p>
+      <form id="profileForm">
+        <div class="field-group">
+          <label for="name">Your Name</label>
+          <input id="name" type="text" required placeholder="e.g. Asha" />
+        </div>
+
+        <div class="section-label">Skill you can teach</div>
+        <div class="field-row">
+          <div class="field-group">
+            <label for="teachSkill">Skill name</label>
+            <input id="teachSkill" type="text" required placeholder="e.g. C programming" />
+          </div>
+          <div class="field-group">
+            <label for="teachLevel">Level</label>
+            <select id="teachLevel">
+              <option>Beginner</option>
+              <option selected>Intermediate</option>
+              <option>Expert</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="teachDomain">Domain</label>
+          <select id="teachDomain">
+            <option>Technology</option>
+            <option>Music</option>
+            <option>Language</option>
+            <option>Art & Design</option>
+            <option>Career & Soft Skills</option>
+            <option selected>Other</option>
+          </select>
+        </div>
+
+        <div class="section-label">Skill you want to learn</div>
+        <div class="field-row">
+          <div class="field-group">
+            <label for="learnSkill">Skill name</label>
+            <input id="learnSkill" type="text" required placeholder="e.g. Guitar" />
+          </div>
+          <div class="field-group">
+            <label for="learnLevel">Your current level</label>
+            <select id="learnLevel">
+              <option selected>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="learnDomain">Domain</label>
+          <select id="learnDomain">
+            <option>Technology</option>
+            <option selected>Music</option>
+            <option>Language</option>
+            <option>Art & Design</option>
+            <option>Career & Soft Skills</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="availability">Availability</label>
+          <select id="availability">
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option selected>Evening</option>
+            <option>Weekend</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary">Save & Find Matches</button>
+      </form>
+    </section>
+
+    <!-- RIGHT: matches + all profiles -->
+    <section class="right-column">
+      <section class="card">
+        <div class="card-header-row">
+          <div>
+            <h2>Your Best Matches</h2>
+            <p class="hint">We score each match and explain why it’s a good fit.</p>
+          </div>
+          <div class="filters">
+            <label class="filter-item">
+              <input type="checkbox" id="filterMutual" />
+              Mutual swap only
+           <label class="filter-item slider-label">
+  <div class="slider-row">
+    <span class="range-min">0</span>
+    <input type="range" id="minScoreRange" min="0" max="100" value="40" />
+    <span class="range-max">100</span>
+  </div>
+  Min score: <span id="minScoreLabel">40</span>
+</label>
+
+          </div>
+        </div>
+        <div id="matchesList" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>All Registered Profiles (Demo)</h2>
+        <p class="hint">In a real system these would come from a backend / database.</p>
+        <div id="profilesList" class="list"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Prototype for SIGMA 2K25 Hackathon &mdash; Smarter Skill Swap Platform</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
